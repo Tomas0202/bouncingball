@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset=utf-8 />
+<title>Canvas</title>
+</head>
+
+<body>
+<canvas id="MeinCanvas" width="600" height="600" style="border:1px solid #c3c3c3;"></canvas>
+<script>
+
+var x = 10;
+var y = 200;
+var dx = 2;
+var dy = 1;
+var context = MeinCanvas.getContext('2d');
+
+function init(){
+return setInterval(draw, 10);
+}
+
+function draw(){
+context.clearRect(0,0,600,600);
+context.fillStyle = "#00A308";
+context.beginPath();
+
+
+context.arc(x, y, 10, 0, 2*Math.PI);
+context.closePath();
+context.fill();
+    if(y < 0 + 10){
+      dy = - dy;  
+        }
+    
+    if( y > 600 - 10){
+        dy = -dy;
+         }
+    
+    if(x > 600 - 10 || x < 0 + 10){
+       dx = -dx; 
+        }
+    
+       x = x + dx;
+       y = y - dy; 
+    }
+    
+init();
+
+
+</script>
+</body>
+
+</html>
